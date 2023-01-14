@@ -56,3 +56,89 @@ class Solution {
         return nums[0];
         }
 }
+
+
+2}Given two arrays a[] and b[] of size n and m respectively. The task is to find the number of elements in the union between these two arrays.
+
+Union of the two arrays can be defined as the set containing distinct elements from both the arrays. If there are repetitions, 
+then only one occurrence of element should be printed in the union.
+
+Note : Elements are not necessarily distinct.
+
+Example 1:
+
+Input:
+5 3
+1 2 3 4 5
+1 2 3
+Output: 
+5
+Explanation: 
+1, 2, 3, 4 and 5 are the
+elements which comes in the union set
+of both arrays. So count is 5.
+
+
+sol============================================================
+
+
+class Solution{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        //Your code here
+        HashSet<Integer> set=new HashSet<>();
+        
+        for(int i=0 ;i<n;i++){
+            set.add(a[i]);
+        }
+        for(int j=0; j<m;j++){
+            set.add(b[j]);
+        }
+        return set.size();
+    }
+}
+
+
+3)
+Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+
+ 
+
+Example 1:
+
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+Example 2:
+
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [9,4]
+Explanation: [4,9] is also accepted.
+
+sol====================================================
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        
+        int re[]=new int [0];
+        HashSet<Integer> set=new HashSet<>();
+        for (int e:nums1){
+            set.add(e);
+        }
+        int ind=0;
+        for(int i=0;i<nums2.length;i++){
+            if(set.contains(nums2[i])){
+                re = Arrays.copyOf(re, re.length + 1);
+                re[ind]=nums2[i];
+                
+                set.remove(nums2[i]);
+                ind++;
+
+
+            }
+            else{
+                continue;
+            }
+        }
+        // arr=arrlist.toArray(arr);
+        return re;
+    }
+}
