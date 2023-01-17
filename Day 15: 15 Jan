@@ -3,3 +3,4 @@ check the number is palindrome or not
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         return str(x) == str(x)[::-1]
+
