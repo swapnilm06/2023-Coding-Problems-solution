@@ -30,4 +30,4 @@ class Solution:
                     return shortest[:i]
         return shortest
         
-        
+       
